@@ -11,7 +11,7 @@ function RaiseTicket() {
     <div className='loginform'>
         <h1>Add Ticket</h1>
         <Formik
-        initialValues={{issue:"",productname:"",customerId:JSON.parse(window.localStorage.getItem('user'))._id}}
+        initialValues={{issue:"",productname:"",customerId:JSON.parse(window.localStorage.getItem('user'))._id,status:"not solved"}}
         onSubmit={(values)=>{
             //console.log(values)
             axios({
@@ -42,9 +42,9 @@ function RaiseTicket() {
             (values)=>{
                 return (
                     <form onSubmit={values.handleSubmit}>
-                        <span style={{fontWeight:'bold'}}>Issue : </span><input type='text' name='issue' onChange={values.handleChange}/><br />
-                        <span style={{fontWeight:'bold'}}>Product Name: </span><input type='text' name='productname' onChange={values.handleChange}/><br /><br />
-                        <button className='btn btn-secondary'>Raise Ticket</button>
+                        <input type='text' name='issue' onChange={values.handleChange} required className='form-control' placeholder='ISSUE'/><br />
+                        <input type='text' name='productname' onChange={values.handleChange} required className='form-control' placeholder='PRODUCT NAME'/><br />
+                        <button className='btn btn-danger'>Raise Ticket</button>
 
                     </form>
                 )

@@ -13,7 +13,7 @@ function Header() {
   return (
     <div>
     <div>
-<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
 <div class="container-fluid">
 <a class="navbar-brand" style={{fontWeight:'bolder',color:'white'}}>Customer Ticket Raise {window.localStorage.getItem('user')?(("Hello! ")+x.username):null}</a>
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

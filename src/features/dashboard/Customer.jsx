@@ -17,8 +17,8 @@ function Customer() {
   return (
     <div className='m-5'>
         <h1>Customer Dashboard</h1>
-       <button className='btn btn-secondary' onClick={()=>{ListTickets()}}>List of Tickets</button>
-       <button className='btn btn-secondary' style={{marginLeft:'30px'}} onClick={()=>{Raiseticket()}} >Raise Ticket</button>
+       <button className='btn btn-success' onClick={()=>{ListTickets()}}>List of Tickets</button>
+       <button className='btn btn-success' style={{marginLeft:'30px'}} onClick={()=>{Raiseticket()}} >Raise Ticket</button>
        <Outlet></Outlet>
     </div>
   )

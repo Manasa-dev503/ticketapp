@@ -27,7 +27,7 @@ function Manager() {
     },[])
 
     function assignTickettoEmployee(ticket,i){
-        var updatedticket = {...ticket,employeeId:employeeid}
+        //var updatedticket = {...ticket,employeeId:employeeid}
         //console.log(updatedticket)
         axios({
             method:'PUT',
@@ -36,6 +36,7 @@ function Manager() {
         })
         .then(function(res){
             alert('Ticket assigned successfully')
+            window.location.reload()
            //console.log(res)
         })
         
@@ -45,47 +46,51 @@ function Manager() {
    
   return (
     <div>
-        <h1>Manager Dashboard</h1>
+        <center><h1 style={{color:'red'}}>Manager Dashboard</h1></center>
         <h3>List Of All Tickets</h3>
-        <table cellPadding={5}>
-            <thead>
-                <th>Issue</th>
-                <th>Select Employee</th>
-                <th>Action</th>
-            </thead>
-            <tbody>
-                {
-                    issue && issue.map(function(ticket,i){
-                        return (
-                            <tr>
-                                <td>{ticket.issue}</td>
-                                <td>
-                                    <select onChange={(e)=>{setemployeeid(e.target.value)}}>
-                                        <option value="" selected disabled>select employee</option>
+        <div className='row'>
+            <div className='col-md-1 col-lg-1'></div>
+            <div className='col-md-10 col-lg-10'>
+                <table className='table table-hover' style={{fontSize:'22px'}}>
+                    <tr style={{textAlign:'center',textTransform:'uppercase'}}> 
+                        <th style={{color:'orangered'}}>Issue</th>
+                        <th style={{color:'orangered'}}>Select Employee</th>
+                        <th style={{color:'orangered'}}>Action</th>
+                    </tr>
+                        {
+                            issue && issue.map(function(ticket,i){
+                                return (
+                                    <tr style={{fontWeight:'bold'}}>
+                                        <td className='text-warning'>{ticket.issue}</td>
+                                        <td>
+                                            <select onChange={(e)=>{setemployeeid(e.target.value)}} className='form-control text-dark' style={{fontWeight:'bold'}}>
+                                                <option value="" selected disabled className='text-dark' style={{fontWeight:'bold'}}>select employee</option>
+                                                {
+                                                    employee && employee.map(function(emp){
+                                                        return <option value={emp._id} style={{fontWeight:'bold'}} className='text-dark'>{emp.username}</option>
+                                                    })
+
+                                                }
+                                            </select>
+                                        </td>
+                                        <td align='center'>
                                         {
-                                            employee && employee.map(function(emp){
-                                                return <option value={emp._id}>{emp.username}</option>
-                                            })
-
+                                        ticket.employeeId?<button className='btn btn-success' style={{fontWeight:'bold'}} disabled>Assigned</button>:<button className='btn btn-warning' style={{fontWeight:'bold'}} onClick={()=>{assignTickettoEmployee(ticket,i)}}>Assign</button>
                                         }
-                                    </select>
-                                </td>
-                                <td>
-                                   {
-                                   ticket.employeeId?<button className='btn btn-success'>Assigned</button>:<button className='btn btn-warning' onClick={()=>{assignTickettoEmployee(ticket,i)}}>Assign</button>
-                                   }
-                                </td>
-                            </tr>
-                        )
-                    })
-                }
-                
-            </tbody>
-            
-
+                                        </td>
+                                    </tr>
+                                )
+                            })
+                        }
         </table>
+        </div>
+        <div className='col-md-1 col-lg-1'>
+
+        </div>
+        </div>
 
     </div>
+   
   )
 }
 

@@ -22,19 +22,28 @@ function ListTickets() {
     //console.log(tickets)
   return (
     <div>
-        <h1>TicketsList</h1>
-        <ul>
+        <center><h1 className='text-danger'>TicketsList</h1></center>
+        <table className='table table-hover table-sm table-bordered' style={{fontSize:'24px'}}>
+            <tr>
+                <th>Issues</th>
+                <th>Status</th>
+            </tr>
             {
                 tickets && tickets.map(function(ticket){
                     if(ticket.customerId === x.id){
-                        return <li>{ticket.issue}</li>
+                        return (
+                            <tr>
+                                <td>{ticket.issue}</td>
+                                <td>{ticket.status}</td>
+                            </tr>
+                        
+                        )
                         
                     }
-                   
                 })
             }
 
-        </ul>
+        </table>
         
     </div>
       
