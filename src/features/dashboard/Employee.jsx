@@ -33,7 +33,7 @@ function Employee() {
 
   return (
     <div>
-        <center><h1 style={{color:'red'}}>Employee Dashboard</h1></center>
+        <center><h1 style={{color:'red'}}>Employee Dashboard(List of Tickets Assigned by Manager)</h1></center>
         <div className='row'>
           <div className='col-md-1 col-lg-1'></div>
           <div className='col-md-10 col-lg-10'>
