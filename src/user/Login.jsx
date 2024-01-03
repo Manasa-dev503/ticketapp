@@ -47,7 +47,7 @@ function Login() {
                             <form onSubmit={values.handleSubmit}>
                                 <input type="text" name="username" onChange={values.handleChange} required className='form-control' placeholder='USER NAME'/>
                                 <br />
-                                <input type="text" name="password" onChange={values.handleChange} required className='form-control' placeholder='PASSWORD'/>
+                                <input type="password" name="password" onChange={values.handleChange} required className='form-control' placeholder='PASSWORD'/>
                                 <br />
                                 <button className='btn btn-outline-dark text-light'>Login</button><br />
                                 <span style={{color:'white',fontWeight:'bolder'}}>New User?</span>&nbsp;<Link to="/registerForm" className='text-warning'>Register Here</Link>
